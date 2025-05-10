@@ -146,10 +146,10 @@ const routes = require("./routes/index");
 app.use(routes);
 
 //public folder
-app.use(express.static(path.join(__dirname, "public")));
-app.get("/*", (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, "public", "index.html"));
-});
+// app.use(express.static(path.join(__dirname, "public")));
+// app.get("/*", (req, res) => {
+//   res.status(200).sendFile(path.join(__dirname, "public", "index.html"));
+// });
 
 db.on("error", console.error.bind(console, "Connection Error: "));
 db.once("open", () => {
