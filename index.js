@@ -145,6 +145,11 @@ cron.schedule("0 0 * * *", async () => {
 const routes = require("./routes/index");
 app.use(routes);
 
+app.get("/", (req, res) => {
+  res.status(200).send("🚀 Welcome to the Tag Project");
+});
+
+
 //public folder
 // app.use(express.static(path.join(__dirname, "public")));
 // app.get("/*", (req, res) => {
