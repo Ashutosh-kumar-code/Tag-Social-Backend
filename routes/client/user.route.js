@@ -8,7 +8,7 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const UserController = require("../../controllers/client/user.controller");
 
 //user login or sign up
-route.post("/login", checkAccessWithSecretKey(), UserController.store);
+route.post("/login", UserController.store);
 
 //check the user is exists or not for loginType 4 (email-password)
 route.post("/checkUser", checkAccessWithSecretKey(), UserController.checkUser);

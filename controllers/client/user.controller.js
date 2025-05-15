@@ -164,7 +164,7 @@ exports.store = async (req, res) => {
           isUnique = true;
         }
       }
-      user.referralCode = referralCode;
+      // newUser.referralCode = referralCode;
 
       const bonusCoins = settingJSON.loginBonus ? settingJSON.loginBonus : 5000;
 
@@ -176,12 +176,12 @@ exports.store = async (req, res) => {
 
       console.log("New user created with referral code:", referralCode);
 
-      const user = await userFunction(newUser, req);
+      const createdUser = await userFunction(newUser, req);
 
       res.status(200).json({
         status: true,
         message: "User Signup Successfully.",
-        user: user,
+        user: createdUser,
         signUp: true,
       });
 
@@ -195,11 +195,11 @@ exports.store = async (req, res) => {
         date: new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }),
       });
 
-      if (user.fcmToken && user.fcmToken !== null) {
+      if (createdUser && createdUser.fcmToken && createdUser.fcmToken !== null) {
         const adminPromise = await admin;
 
         const payload = {
-          token: user.fcmToken,
+          token: createdUser.fcmToken,
           notification: {
             title: "🎁 You've Earned a Login Bonus! 🎁",
             body: "You've just received an exclusive login bonus! 🌟 We're thrilled to have you with us. Enjoy your reward!",
