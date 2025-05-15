@@ -8,6 +8,6 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const settingController = require("../../controllers/client/setting.controller");
 
 //get setting
-route.get("/", checkAccessWithSecretKey(), settingController.get);
+route.get("/", settingController.get);
 
 module.exports = route;
