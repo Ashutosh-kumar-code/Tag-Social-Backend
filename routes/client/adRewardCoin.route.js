@@ -7,6 +7,6 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 //controller
 const adRewardCoinController = require("../../controllers/client/adRewardCoin.controller");
 
-route.get("/getAdRewardByUser", checkAccessWithSecretKey(), adRewardCoinController.getAdRewardByUser);
+route.get("/getAdRewardByUser",  adRewardCoinController.getAdRewardByUser);
 
 module.exports = route;

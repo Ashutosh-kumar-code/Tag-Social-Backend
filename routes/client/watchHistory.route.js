@@ -8,9 +8,9 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const watchHistoryController = require("../../controllers/client/watchHistory.controller");
 
 //when user view the video create watchHistory of the particular video
-route.post("/createWatchHistory", checkAccessWithSecretKey(), watchHistoryController.createWatchHistory);
+route.post("/createWatchHistory",  watchHistoryController.createWatchHistory);
 
 //get user wise watchHistory
-route.get("/getWatchHistory", checkAccessWithSecretKey(), watchHistoryController.getWatchHistory);
+route.get("/getWatchHistory",  watchHistoryController.getWatchHistory);
 
 module.exports = route;

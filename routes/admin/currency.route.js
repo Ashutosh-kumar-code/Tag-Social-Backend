@@ -7,11 +7,11 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 //controller
 const currencyController = require("../../controllers/admin/currencyController");
 
-route.post("/create", checkAccessWithSecretKey(), currencyController.store);
-route.patch("/update", checkAccessWithSecretKey(), currencyController.update);
-route.get("/", checkAccessWithSecretKey(), currencyController.get);
-route.get("/getDefault", checkAccessWithSecretKey(), currencyController.getDefault);
-route.patch("/default", checkAccessWithSecretKey(), currencyController.defaultCurrency);
-route.delete("/delete", checkAccessWithSecretKey(), currencyController.destroy);
+route.post("/create",  currencyController.store);
+route.patch("/update",  currencyController.update);
+route.get("/",  currencyController.get);
+route.get("/getDefault",  currencyController.getDefault);
+route.patch("/default",  currencyController.defaultCurrency);
+route.delete("/delete",  currencyController.destroy);
 
 module.exports = route;

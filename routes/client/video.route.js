@@ -8,60 +8,60 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const videoController = require("../../controllers/client/video.controller");
 
 //video Unlocked
-route.post("/unlockPrivateVideo", checkAccessWithSecretKey(), videoController.unlockPrivateVideo);
+route.post("/unlockPrivateVideo",  videoController.unlockPrivateVideo);
 
 //channel name verify when upload viodeo or shorts
-route.get("/verifyChannelname", checkAccessWithSecretKey(), videoController.verifyChannelname);
+route.get("/verifyChannelname",  videoController.verifyChannelname);
 
 //upload (normal videos or shorts) by the user
-route.post("/createVideo", checkAccessWithSecretKey(), videoController.createVideo);
+route.post("/createVideo",  videoController.createVideo);
 
 //when user share (normal videos or shorts) then shareCount increased
-route.post("/shareCount", checkAccessWithSecretKey(), videoController.shareCount);
+route.post("/shareCount",  videoController.shareCount);
 
 //get shorts from home page directly
-route.get("/shortsOfUser", checkAccessWithSecretKey(), videoController.shortsOfUser);
+route.get("/shortsOfUser",  videoController.shortsOfUser);
 
 //get all shorts for user (shorts)
-route.get("/getShorts", checkAccessWithSecretKey(), videoController.getShorts);
+route.get("/getShorts",  videoController.getShorts);
 
 //get all normal videos for user (home)
-route.get("/getVideos", checkAccessWithSecretKey(), videoController.getVideos);
+route.get("/getVideos",  videoController.getVideos);
 
 //get channel details of shorts for user
-route.get("/channeldetailsOfShorts", checkAccessWithSecretKey(), videoController.channeldetailsOfShorts);
+route.get("/channeldetailsOfShorts",  videoController.channeldetailsOfShorts);
 
 //get all (normal videos or shorts) for user (home)
-route.get("/videosOfHome", checkAccessWithSecretKey(), videoController.videosOfHome);
+route.get("/videosOfHome",  videoController.videosOfHome);
 
 //get particular normal video's details for user
-route.get("/detailsOfVideo", checkAccessWithSecretKey(), videoController.detailsOfVideo);
+route.get("/detailsOfVideo",  videoController.detailsOfVideo);
 
 //create like or dislike for video (normal videos or shorts)
-route.post("/likeOrDislikeOfVideo", checkAccessWithSecretKey(), videoController.likeOrDislikeOfVideo);
+route.post("/likeOrDislikeOfVideo",  videoController.likeOrDislikeOfVideo);
 
 //get all more like this (normal videos or shorts)
-route.get("/getAllLikeThis", checkAccessWithSecretKey(), videoController.getAllLikeThis);
+route.get("/getAllLikeThis",  videoController.getAllLikeThis);
 
 //search (normal videos or shorts) for user
-route.post("/search", checkAccessWithSecretKey(), videoController.search);
+route.post("/search",  videoController.search);
 
 //previous search (normal videos or shorts) for user
-route.get("/searchData", checkAccessWithSecretKey(), videoController.searchData);
+route.get("/searchData",  videoController.searchData);
 
 //search shorts for user
-route.post("/searchShorts", checkAccessWithSecretKey(), videoController.searchShorts);
+route.post("/searchShorts",  videoController.searchShorts);
 
 //type wise searching (All OR videos OR shorts)
-route.post("/searchChannelVideoShortsByUser", checkAccessWithSecretKey(), videoController.searchChannelVideoShortsByUser);
+route.post("/searchChannelVideoShortsByUser",  videoController.searchChannelVideoShortsByUser);
 
 //clear all searchHistory for particular user
-route.delete("/clearAllSearchHistory", checkAccessWithSecretKey(), videoController.clearAllSearchHistory);
+route.delete("/clearAllSearchHistory",  videoController.clearAllSearchHistory);
 
 //update (normal videos or shorts) by user
-route.patch("/modifyVideo", checkAccessWithSecretKey(), videoController.modifyVideo);
+route.patch("/modifyVideo",  videoController.modifyVideo);
 
 //delete (normal videos or shorts) by user
-route.delete("/deleteVideoRecord", checkAccessWithSecretKey(), videoController.deleteVideoRecord);
+route.delete("/deleteVideoRecord",  videoController.deleteVideoRecord);
 
 module.exports = route;

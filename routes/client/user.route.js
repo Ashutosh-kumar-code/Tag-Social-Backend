@@ -11,57 +11,57 @@ const UserController = require("../../controllers/client/user.controller");
 route.post("/login", UserController.store);
 
 //check the user is exists or not for loginType 4 (email-password)
-route.post("/checkUser", checkAccessWithSecretKey(), UserController.checkUser);
+route.post("/checkUser",  UserController.checkUser);
 
 //check referral code is valid and apply referral code by user
-route.patch("/validateAndApplyReferralCode", checkAccessWithSecretKey(), UserController.validateAndApplyReferralCode);
+route.patch("/validateAndApplyReferralCode", UserController.validateAndApplyReferralCode);
 
 //earn coin from watching ad
-route.patch("/handleAdWatchReward", checkAccessWithSecretKey(), UserController.handleAdWatchReward);
+route.patch("/handleAdWatchReward",  UserController.handleAdWatchReward);
 
 //earn coin from engagement video reward
-route.patch("/handleEngagementVideoWatchReward", checkAccessWithSecretKey(), UserController.handleEngagementVideoWatchReward);
+route.patch("/handleEngagementVideoWatchReward", UserController.handleEngagementVideoWatchReward);
 
 //get user profile who login
-route.get("/profile", checkAccessWithSecretKey(), UserController.getProfile);
+route.get("/profile", UserController.getProfile);
 
 //update details of the channel (create your channel button)
-route.patch("/update", checkAccessWithSecretKey(), UserController.update);
+route.patch("/update",  UserController.update);
 
 //update profile of the user (when user login or signUp)
-route.patch("/updateProfile", checkAccessWithSecretKey(), UserController.updateProfile);
+route.patch("/updateProfile", UserController.updateProfile);
 
 //update password
-route.patch("/updatePassword", checkAccessWithSecretKey(), UserController.updatePassword);
+route.patch("/updatePassword", UserController.updatePassword);
 
 //set password
-route.post("/setPassword", checkAccessWithSecretKey(), UserController.setPassword);
+route.post("/setPassword", UserController.setPassword);
 
 //get particular channel's details (home page)
-route.get("/detailsOfChannel", checkAccessWithSecretKey(), UserController.detailsOfChannel);
+route.get("/detailsOfChannel", UserController.detailsOfChannel);
 
 //get particular's channel's videoType wise videos (videos, shorts) (your videos)
-route.get("/videosOfChannel", checkAccessWithSecretKey(), UserController.videosOfChannel);
+route.get("/videosOfChannel", UserController.videosOfChannel);
 
 //get particular's channel's playLists
-route.get("/playListsOfChannel", checkAccessWithSecretKey(), UserController.playListsOfChannel);
+route.get("/playListsOfChannel", UserController.playListsOfChannel);
 
 //get particular channel's about
-route.get("/aboutOfChannel", checkAccessWithSecretKey(), UserController.aboutOfChannel);
+route.get("/aboutOfChannel",  UserController.aboutOfChannel);
 
 //search channel for user
-route.post("/searchChannel", checkAccessWithSecretKey(), UserController.searchChannel);
+route.post("/searchChannel", UserController.searchChannel);
 
 //delete user account
-route.delete("/deleteUserAccount", checkAccessWithSecretKey(), UserController.deleteUserAccount);
+route.delete("/deleteUserAccount", UserController.deleteUserAccount);
 
 //get referral history of particular user
-route.get("/loadReferralHistoryByUser", checkAccessWithSecretKey(), UserController.loadReferralHistoryByUser);
+route.get("/loadReferralHistoryByUser",  UserController.loadReferralHistoryByUser);
 
 //get coin history of particular user
-route.get("/retriveCoinHistoryByUser", checkAccessWithSecretKey(), UserController.retriveCoinHistoryByUser);
+route.get("/retriveCoinHistoryByUser",  UserController.retriveCoinHistoryByUser);
 
 //get wallet history of particular user
-route.get("/fetchWalletHistoryByUser", checkAccessWithSecretKey(), UserController.fetchWalletHistoryByUser);
+route.get("/fetchWalletHistoryByUser", UserController.fetchWalletHistoryByUser);
 
 module.exports = route;

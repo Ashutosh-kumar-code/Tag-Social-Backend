@@ -8,15 +8,15 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const soundCategoryController = require("../../controllers/admin/soundCategory.controller");
 
 //create soundCategory
-route.post("/create", checkAccessWithSecretKey(), soundCategoryController.create);
+route.post("/create",  soundCategoryController.create);
 
 //update soundCategory
-route.patch("/update", checkAccessWithSecretKey(), soundCategoryController.update);
+route.patch("/update",  soundCategoryController.update);
 
 //delete soundCategory
-route.delete("/delete", checkAccessWithSecretKey(), soundCategoryController.destroy);
+route.delete("/delete",  soundCategoryController.destroy);
 
 //get all soundCategory
-route.get("/", checkAccessWithSecretKey(), soundCategoryController.get);
+route.get("/",  soundCategoryController.get);
 
 module.exports = route;

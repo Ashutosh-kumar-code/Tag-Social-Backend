@@ -9,21 +9,21 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const premiumPlanController = require("../../controllers/admin/premiumPlan.controller");
 
 //create premiumPlan by admin
-route.post("/create", checkAccessWithSecretKey(), premiumPlanController.store);
+route.post("/create", premiumPlanController.store);
 
 //update premiumPlan by admin
-route.patch("/update", checkAccessWithSecretKey(), premiumPlanController.update);
+route.patch("/update", premiumPlanController.update);
 
 //delete premiumPlan by admin
-route.delete("/delete", checkAccessWithSecretKey(), premiumPlanController.destroy);
+route.delete("/delete",  premiumPlanController.destroy);
 
 //get premiumPlan for admin
-route.get("/", checkAccessWithSecretKey(), premiumPlanController.index);
+route.get("/",  premiumPlanController.index);
 
 //handle activation of premiumPlan
-route.patch("/handleisActive", checkAccessWithSecretKey(), premiumPlanController.handleisActive);
+route.patch("/handleisActive",  premiumPlanController.handleisActive);
 
 //get premiumPlan histories of users (admin earning)
-route.get("/getpremiumPlanHistory", checkAccessWithSecretKey(), premiumPlanController.getpremiumPlanHistory);
+route.get("/getpremiumPlanHistory",  premiumPlanController.getpremiumPlanHistory);
 
 module.exports = route;

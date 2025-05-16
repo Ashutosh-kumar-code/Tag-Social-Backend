@@ -8,9 +8,9 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const liveUserController = require("../../controllers/client/liveUser.controller");
 
 //live the user
-route.post("/live", checkAccessWithSecretKey(), liveUserController.liveUser);
+route.post("/live",  liveUserController.liveUser);
 
 //get live user list
-route.get("/getliveUserList", checkAccessWithSecretKey(), liveUserController.getliveUserList);
+route.get("/getliveUserList",  liveUserController.getliveUserList);
 
 module.exports = route;

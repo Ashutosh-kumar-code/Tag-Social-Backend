@@ -8,18 +8,18 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const VideoCommentController = require("../../controllers/client/videoComment.controller");
 
 //create user wise comment for video
-route.post("/createComment", checkAccessWithSecretKey(), VideoCommentController.createComment);
+route.post("/createComment",  VideoCommentController.createComment);
 
 //create like or dislike for comment
-route.post("/likeOrDislike", checkAccessWithSecretKey(), VideoCommentController.likeOrDislike);
+route.post("/likeOrDislike",  VideoCommentController.likeOrDislike);
 
 //get commentType wise all comments for particular video (top, mostLiked, newest)
-route.get("/getComments", checkAccessWithSecretKey(), VideoCommentController.getComments);
+route.get("/getComments",  VideoCommentController.getComments);
 
 //create user wise reply to particular comment of particular video
-route.post("/createCommentReply", checkAccessWithSecretKey(), VideoCommentController.createCommentReply);
+route.post("/createCommentReply",  VideoCommentController.createCommentReply);
 
 //get all replies for particular comment
-route.get("/repliesOfVideoComment", checkAccessWithSecretKey(), VideoCommentController.repliesOfVideoComment);
+route.get("/repliesOfVideoComment",  VideoCommentController.repliesOfVideoComment);
 
 module.exports = route;

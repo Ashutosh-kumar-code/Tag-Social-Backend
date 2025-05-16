@@ -8,15 +8,15 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const advertiseController = require("../../controllers/admin/advertise.controller");
 
 //create advertise
-//route.post("/create", checkAccessWithSecretKey(), advertiseController.store);
+//route.post("/create",  advertiseController.store);
 
 //update advertise
-route.patch("/update", checkAccessWithSecretKey(), advertiseController.update);
+route.patch("/update",  advertiseController.update);
 
 //get advertise
-route.get("/", checkAccessWithSecretKey(), advertiseController.get);
+route.get("/",  advertiseController.get);
 
 //handle activation of the switch
-route.patch("/handleSwitchForAd", checkAccessWithSecretKey(), advertiseController.handleSwitchForAd);
+route.patch("/handleSwitchForAd",  advertiseController.handleSwitchForAd);
 
 module.exports = route;

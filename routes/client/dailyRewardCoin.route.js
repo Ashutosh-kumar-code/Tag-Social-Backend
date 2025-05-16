@@ -8,9 +8,9 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const dailyRewardCoinController = require("../../controllers/client/dailyRewardCoin.controller");
 
 //get daily reward coin
-route.get("/getDailyRewardCoinByUser", checkAccessWithSecretKey(), dailyRewardCoinController.getDailyRewardCoinByUser);
+route.get("/getDailyRewardCoinByUser",  dailyRewardCoinController.getDailyRewardCoinByUser);
 
 //earn coin from daily check In
-route.patch("/handleDailyCheckInReward", checkAccessWithSecretKey(), dailyRewardCoinController.handleDailyCheckInReward);
+route.patch("/handleDailyCheckInReward",  dailyRewardCoinController.handleDailyCheckInReward);
 
 module.exports = route;

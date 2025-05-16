@@ -8,12 +8,12 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const VideoCommentController = require("../../controllers/admin/videoComment.controller");
 
 //get particular video's comment
-route.get("/getComment", checkAccessWithSecretKey(), VideoCommentController.getComment);
+route.get("/getComment",  VideoCommentController.getComment);
 
 //get comments of all videos added by user and admin
-route.get("/commentsOfVideos", checkAccessWithSecretKey(), VideoCommentController.commentsOfVideos);
+route.get("/commentsOfVideos",  VideoCommentController.commentsOfVideos);
 
 //delete videoComment by admin (multiple or single)
-route.delete("/deleteVideoComment", checkAccessWithSecretKey(), VideoCommentController.deleteVideoComment);
+route.delete("/deleteVideoComment",  VideoCommentController.deleteVideoComment);
 
 module.exports = route;

@@ -8,9 +8,9 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const NotificationController = require("../../controllers/client/notification.controller");
 
 //get notification list for that user
-route.get("/getNotificationList", checkAccessWithSecretKey(), NotificationController.getNotificationList);
+route.get("/getNotificationList", NotificationController.getNotificationList);
 
 //clear all notification for particular user
-route.delete("/clearNotificationHistory", checkAccessWithSecretKey(), NotificationController.clearNotificationHistory);
+route.delete("/clearNotificationHistory", NotificationController.clearNotificationHistory);
 
 module.exports = route;

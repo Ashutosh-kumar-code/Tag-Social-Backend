@@ -8,12 +8,12 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const userWiseSubscriptionController = require("../../controllers/client/userWiseSubscription.controller");
 
 //user wise subscribed or unSubscribed the channel
-route.post("/subscribedUnSubscibed", checkAccessWithSecretKey(), userWiseSubscriptionController.subscribedUnSubscibed);
+route.post("/subscribedUnSubscibed",  userWiseSubscriptionController.subscribedUnSubscibed);
 
 //get all subscription channels subscribed by that user
-route.get("/getSubscribedChannel", checkAccessWithSecretKey(), userWiseSubscriptionController.getSubscribedChannel);
+route.get("/getSubscribedChannel",  userWiseSubscriptionController.getSubscribedChannel);
 
 //get type wise videos of the subscribed channels
-route.get("/videoOfSubscribedChannel", checkAccessWithSecretKey(), userWiseSubscriptionController.videoOfSubscribedChannel);
+route.get("/videoOfSubscribedChannel",  userWiseSubscriptionController.videoOfSubscribedChannel);
 
 module.exports = route;

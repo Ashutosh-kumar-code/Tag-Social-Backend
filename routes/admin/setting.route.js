@@ -11,15 +11,15 @@ const settingController = require("../../controllers/admin/setting.controller");
 //route.post("/create", checkAccessWithSecretKey(), settingController.store);
 
 //update Setting
-route.patch("/update", checkAccessWithSecretKey(), settingController.update);
+route.patch("/update", settingController.update);
 
 //get setting data
-route.get("/", checkAccessWithSecretKey(), settingController.index);
+route.get("/", settingController.index);
 
 //handle setting switch
-route.patch("/handleSwitch", checkAccessWithSecretKey(), settingController.handleSwitch);
+route.patch("/handleSwitch", settingController.handleSwitch);
 
 //handle water mark setting
-route.patch("/updateWatermarkSetting", checkAccessWithSecretKey(), settingController.updateWatermarkSetting);
+route.patch("/updateWatermarkSetting", settingController.updateWatermarkSetting);
 
 module.exports = route;

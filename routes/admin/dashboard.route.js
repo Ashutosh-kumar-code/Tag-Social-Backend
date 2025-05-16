@@ -8,12 +8,12 @@ const dashboardController = require("../../controllers/admin/dashboard.controlle
 const checkAccessWithSecretKey = require("../../checkAccess");
 
 //get admin panel dashboard
-route.get("/dashboardCount", checkAccessWithSecretKey(), dashboardController.dashboardCount);
+route.get("/dashboardCount",  dashboardController.dashboardCount);
 
 //get date wise chartAnalytic for users, videos, shorts
-route.get("/chartAnalytic", checkAccessWithSecretKey(), dashboardController.chartAnalytic);
+route.get("/chartAnalytic",  dashboardController.chartAnalytic);
 
 //get date wise chartAnalytic for active users, inActive users
-route.get("/chartAnalyticOfactiveInactiveUser", checkAccessWithSecretKey(), dashboardController.chartAnalyticOfactiveInactiveUser);
+route.get("/chartAnalyticOfactiveInactiveUser",  dashboardController.chartAnalyticOfactiveInactiveUser);
 
 module.exports = route;

@@ -8,9 +8,9 @@ const coinplanController = require("../../controllers/client/coinplan.controller
 const checkAccessWithSecretKey = require("../../checkAccess");
 
 //get coinplan
-route.get("/retriveCoinplanByUser", checkAccessWithSecretKey(), coinplanController.retriveCoinplanByUser);
+route.get("/retriveCoinplanByUser",  coinplanController.retriveCoinplanByUser);
 
 //when user purchase the coinPlan create coinPlan history by user
-route.post("/createCoinPlanHistory", checkAccessWithSecretKey(), coinplanController.createCoinPlanHistory);
+route.post("/createCoinPlanHistory",  coinplanController.createCoinPlanHistory);
 
 module.exports = route;

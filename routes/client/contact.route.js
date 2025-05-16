@@ -9,6 +9,6 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const contactController = require("../../controllers/client/contact.controller");
 
 //get contact
-route.get("/", checkAccessWithSecretKey(), contactController.get);
+route.get("/",  contactController.get);
 
 module.exports = route;

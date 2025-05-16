@@ -8,15 +8,15 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const soundListController = require("../../controllers/admin/soundList.controller");
 
 //create soundList by admin
-route.post("/createSoundList", checkAccessWithSecretKey(), soundListController.createSoundList);
+route.post("/createSoundList",  soundListController.createSoundList);
 
 //update soundList by admin
-route.patch("/updateSoundList", checkAccessWithSecretKey(), soundListController.updateSoundList);
+route.patch("/updateSoundList",  soundListController.updateSoundList);
 
 //get all soundList
-route.get("/getSoundList", checkAccessWithSecretKey(), soundListController.getSoundList);
+route.get("/getSoundList",  soundListController.getSoundList);
 
 //delete soundList by admin (multiple or single)
-route.delete("/deleteSoundList", checkAccessWithSecretKey(), soundListController.deleteSoundList);
+route.delete("/deleteSoundList",  soundListController.deleteSoundList);
 
 module.exports = route;

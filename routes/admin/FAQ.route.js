@@ -8,15 +8,15 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const FAQController = require("../../controllers/admin/FAQ.controller");
 
 //create FAQ
-route.post("/create", checkAccessWithSecretKey(), FAQController.store);
+route.post("/create",  FAQController.store);
 
 //update FAQ
-route.patch("/update", checkAccessWithSecretKey(), FAQController.update);
+route.patch("/update",  FAQController.update);
 
 //delete FAQ
-route.delete("/delete", checkAccessWithSecretKey(), FAQController.destroy);
+route.delete("/delete",  FAQController.destroy);
 
 //get FAQ
-route.get("/", checkAccessWithSecretKey(), FAQController.get);
+route.get("/",  FAQController.get);
 
 module.exports = route;

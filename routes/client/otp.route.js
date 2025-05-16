@@ -8,12 +8,12 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const OTPController = require("../../controllers/client/otp.controller");
 
 //create OTP when user login
-route.post("/otplogin", checkAccessWithSecretKey(), OTPController.otplogin);
+route.post("/otplogin",  OTPController.otplogin);
 
 //create OTP and send the email for password security
-route.post("/create", checkAccessWithSecretKey(), OTPController.store);
+route.post("/create",  OTPController.store);
 
 //verify the OTP
-route.post("/verify", checkAccessWithSecretKey(), OTPController.verify);
+route.post("/verify",  OTPController.verify);
 
 module.exports = route;

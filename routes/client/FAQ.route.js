@@ -8,6 +8,6 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const FAQController = require("../../controllers/client/FAQ.controller");
 
 //get FAQ
-route.get("/", checkAccessWithSecretKey(), FAQController.get);
+route.get("/",  FAQController.get);
 
 module.exports = route;

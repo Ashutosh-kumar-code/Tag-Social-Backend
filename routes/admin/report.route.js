@@ -8,9 +8,9 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const ReportController = require("../../controllers/admin/report.controller");
 
 //get all reports of the video or shorts
-route.get("/getReports", checkAccessWithSecretKey(), ReportController.getReports);
+route.get("/getReports",  ReportController.getReports);
 
 //delete reports of the video by admin (multiple or single)
-route.delete("/deleteVideoReport", checkAccessWithSecretKey(), ReportController.deleteVideoReport);
+route.delete("/deleteVideoReport",  ReportController.deleteVideoReport);
 
 module.exports = route;

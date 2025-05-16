@@ -8,18 +8,18 @@ const checkAccessWithSecretKey = require("../../checkAccess");
 const WithdrawController = require("../../controllers/admin/withdraw.controller");
 
 //store Withdraw
-route.post("/create", checkAccessWithSecretKey(), WithdrawController.store);
+route.post("/create",  WithdrawController.store);
 
 //update Withdraw
-route.patch("/update", checkAccessWithSecretKey(), WithdrawController.update);
+route.patch("/update",  WithdrawController.update);
 
 //get Withdraw
-route.get("/", checkAccessWithSecretKey(), WithdrawController.get);
+route.get("/",  WithdrawController.get);
 
 //delete Withdraw
-route.delete("/", checkAccessWithSecretKey(), WithdrawController.delete);
+route.delete("/",  WithdrawController.delete);
 
 //handle isEnabled switch
-route.patch("/handleSwitch", checkAccessWithSecretKey(), WithdrawController.handleSwitch);
+route.patch("/handleSwitch",  WithdrawController.handleSwitch);
 
 module.exports = route;
