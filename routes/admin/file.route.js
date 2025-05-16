@@ -24,11 +24,10 @@ route.post(
       }
     });
   },
-  checkAccessWithSecretKey(),
   FileController.uploadContent
 );
 
 //delete upload content from digital ocean storage
-route.delete("/delete-upload", checkAccessWithSecretKey(), FileController.deleteUploadContent);
+route.delete("/delete-upload", FileController.deleteUploadContent);
 
 module.exports = route;
