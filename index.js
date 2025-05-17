@@ -1,6 +1,7 @@
 //express
 const express = require("express");
 const app = express();
+const chatRoutes = require("./routes/chat/chatRoutes");
 
 //cors
 const cors = require("cors");
@@ -84,6 +85,8 @@ global.updateSettingFile = (settingData) => {
 
 //socket.js
 require("./socket");
+const initializeSocket = require("./normalchatSocket");
+initializeSocket(server);
 
 //import model
 const Video = require("./models/video.model");
@@ -144,6 +147,7 @@ cron.schedule("0 0 * * *", async () => {
 //routes
 const routes = require("./routes/index");
 app.use(routes);
+app.use("/api/chat", chatRoutes);
 
 app.get("/", (req, res) => {
   res.status(200).send("🚀 Welcome to the Tag Project");

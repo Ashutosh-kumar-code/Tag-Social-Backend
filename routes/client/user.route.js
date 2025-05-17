@@ -64,4 +64,8 @@ route.get("/retriveCoinHistoryByUser",  UserController.retriveCoinHistoryByUser)
 //get wallet history of particular user
 route.get("/fetchWalletHistoryByUser", UserController.fetchWalletHistoryByUser);
 
+// GET /api/leaderboard
+route.get('/leaderboard', UserController.getLeaderboard);
+
 module.exports = route;
+

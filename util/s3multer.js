@@ -71,6 +71,7 @@ require("dotenv").config(); // Ensure this is at the top if not already loaded g
 const aws = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
+const { v4: uuidv4 } = require("uuid");
 
 // Correct AWS SDK v2 usage (for multer-s3 compatibility)
 aws.config.update({
@@ -87,6 +88,9 @@ const upload = multer({
     bucket: process.env.bucketName,
     acl: "public-read", // 👈 VERY IMPORTANT
     contentType: multerS3.AUTO_CONTENT_TYPE,
+    //  key: function (req, file, cb) {
+    //   cb(null, `uploads/tag-data/userImage/${uuidv4()}.${file.mimetype.split("/")[1]}`);
+    // },
     key: function (req, file, cb) {
       console.log("File received:", file.originalname);
       console.log("Request body:", req.body);

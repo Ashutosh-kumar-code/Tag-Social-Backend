@@ -229,6 +229,77 @@ exports.store = async (req, res) => {
   }
 };
 
+// users leaderboard
+exports.getLeaderboard = async (req, res) => {
+  try {
+    const videoStats = await Video.aggregate([
+      {
+        $group: {
+          _id: "$userId",
+          totalVideos: { $sum: 1 },
+          totalLikes: { $sum: "$like" }, // fixed field name
+        },
+      },
+    ]);
+
+ const subscriptionStats = await UserWiseSubscription.aggregate([
+  {
+    $group: {
+      _id: "$channelId",  // correct field name
+      totalSubscribers: { $sum: 1 },
+    },
+  },
+]);
+
+
+    const userMap = {};
+
+    videoStats.forEach((stat) => {
+      userMap[stat._id?.toString()] = {
+        ...userMap[stat._id?.toString()],
+        totalVideos: stat.totalVideos,
+        totalLikes: stat.totalLikes,
+      };
+    });
+
+    subscriptionStats.forEach((stat) => {
+      userMap[stat._id?.toString()] = {
+        ...userMap[stat._id?.toString()],
+        totalSubscribers: stat.totalSubscribers,
+      };
+    });
+
+    const userIds = Object.keys(userMap).map(id => new mongoose.Types.ObjectId(id));
+
+    const users = await User.find({ _id: { $in: userIds } })
+      .select('fullName image')
+      .lean();
+
+    const leaderboard = users.map((user) => {
+      const stats = userMap[user._id.toString()];
+      const score =
+        (stats.totalSubscribers || 0) * 5 +
+        (stats.totalVideos || 0) * 3 +
+        (stats.totalLikes || 0) * 2;
+
+      return {
+        userId: user._id,
+        fullName: user.fullName,
+        image: user.image,
+        ...stats,
+        score,
+      };
+    });
+
+    leaderboard.sort((a, b) => b.score - a.score);
+
+    res.json({ success: true, leaderboard });
+  } catch (err) {
+    console.error('Leaderboard Error:', err);
+    res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+};
+
 //check the user is exists or not for loginType 4 (email-password)
 exports.checkUser = async (req, res) => {
   try {
