@@ -86,7 +86,7 @@ const upload = multer({
   storage: multerS3({
     s3: s3,
     bucket: process.env.bucketName,
-    acl: "public-read", // 👈 VERY IMPORTANT
+    // acl: "public-read", // 👈 VERY IMPORTANT
     contentType: multerS3.AUTO_CONTENT_TYPE,
     //  key: function (req, file, cb) {
     //   cb(null, `uploads/tag-data/userImage/${uuidv4()}.${file.mimetype.split("/")[1]}`);
